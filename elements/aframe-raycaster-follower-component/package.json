@@ -1,5 +1,5 @@
 {
-  "name": "aframe-raycaster-follower-component",
+  "name": "@odl/aframe-raycaster-follower-component",
   "version": "1.0.1-alpha.0",
   "main": "index.js",
   "license": "MIT",
