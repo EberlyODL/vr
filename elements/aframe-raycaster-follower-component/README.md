@@ -1,5 +1,7 @@
 # A-Frame Raycaster Follow Component
 
+![](assets/demo.gif)
+
 This is an A-Frame component for changing the position of an object based on what your raycasting is interacting with.  Useful for raycaster indicators.
 
 ## Usage
