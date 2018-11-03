@@ -40,5 +40,10 @@
   "ignore": [
     "examples/build.js",
     "dist/**"
-  ]
+  ],
+  "gitHead": "6f1bb4cf991d964b475e6baf9c923e727265c079",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  }
 }
