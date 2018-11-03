@@ -1,0 +1,34 @@
+<html>
+
+<head>
+  <title>
+    chemical-reaction-lab
+  </title>
+  <meta name="description" content="chemical-reaction-lab">
+  <script src="../build.js"></script>
+</head>
+
+<body>
+  <a-scene physics="gravity: -51; debug:false" renderer="antialias: true; gammaOutput: true; sortObjects: true;" >
+
+  <a-box material="color: pink" position="0 3 -18"></a-box>
+  <a-box material="color: orange" position="5 2 -8"></a-box>
+  <a-box material="color: purple" position="-5 -1 -4"></a-box>
+
+  <a-entity position="0 3 -3" raycaster-follower="targets:a-box;offset:0 -2 0">
+    <a-entity  geometry="primitive:octahedron;radius:0.73" material="color:#0050ff;width:511.33" scale="1 1.38 1"
+      animation="property: position; dir: alternate; dur: 300;
+      easing: easeInSine; loop: true; to: 0 1 0"
+    >
+  </a-entity>
+
+  </a-entity>
+  <a-camera id="camera" wasd-controls="acceleration:220;fly:false;" look-controls="pointerLockEnabled:true">
+    <a-cursor></a-cursor>
+  </a-camera>
+
+  <a-sky material="color:lightblue"></a-sky>
+  </a-scene>
+</body>
+
+</html>
