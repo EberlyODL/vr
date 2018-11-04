@@ -8,7 +8,7 @@
     "dev": "budo examples/main.js:build.js --dir examples --port 8000 --live --open",
     "build": "npm run build:example && npm run build:dist",
     "build:example": "browserify examples/main.js -o examples/build.js",
-    "build:dist": "webpack index.js dist/aframe-alongpath-component.js && webpack -p index.js dist/aframe-alongpath-component.min.js",
+    "build:dist": "webpack index.js dist/aframe-raycaster-follower-component.js && webpack -p index.js dist/aframe-raycaster-follower-component.min.js",
     "lint": "semistandard -v | snazzy",
     "preghpages": "npm run build && shx rm -rf gh-pages && shx mkdir gh-pages && shx cp -r examples/* gh-pages",
     "ghpages": "npm run preghpages && ghpages -p gh-pages"
