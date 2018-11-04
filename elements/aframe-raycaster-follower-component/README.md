@@ -22,7 +22,7 @@ npm install @odl/aframe-raycaster-follower-component
 
 To use this component you need three things:
 
-- Target to follower
+- Target to follow
 - A follower entity with `raycaster-follower`
 - A raycaster
 
