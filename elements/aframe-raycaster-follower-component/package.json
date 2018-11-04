@@ -3,6 +3,10 @@
   "version": "1.0.7-alpha.0",
   "main": "index.js",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EberlyODL/vr/tree/master/elements/aframe-raycaster-follower-component"
+  },
   "scripts": {
     "start": "npm run dev",
     "dev": "budo examples/main.js:build.js --dir examples --port 8000 --live --open",
