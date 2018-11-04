@@ -31,7 +31,7 @@ To use this component you need three things:
   <a-entity class="target" position="3 3 3"></a-entity>
 
   <!-- follower -->
-  <a-entity raycaster-follower="target:.target,offset: 0 -3 0">
+  <a-entity raycaster-follower="target:.target;offset: 0 -3 0;">
 
   <!-- Raycaster -->
   <a-camera>
