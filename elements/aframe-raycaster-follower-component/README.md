@@ -4,6 +4,12 @@
 
 This is an A-Frame component for changing the position of an object based on what your raycasting is interacting with.  Useful for raycaster indicators.
 
+## Installation
+
+```
+npm install @odl/aframe-raycaster-follower-component
+```
+
 ## API
 
 ### Properties
@@ -14,16 +20,26 @@ This is an A-Frame component for changing the position of an object based on wha
 
 ## Usage
 
+To use this component you need three things:
+
+- Target to follower
+- A follower entity with `raycaster-follower`
+- A raycaster
+
 ```
   <!-- target -->
   <a-entity class="target" position="3 3 3"></a-entity>
+
   <!-- follower -->
   <a-entity raycaster-follower="target:.target,offset: 0 -3 0">
+
   <!-- Raycaster -->
   <a-camera>
     <a-cursor></a-cursor>
   </a-camera>
 ```
+
+Demo of two raycaster collision indicators:
 
 ```
 <head>
