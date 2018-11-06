@@ -1,0 +1,27 @@
+<html>
+
+<head>
+  <title>
+    chemical-reaction-lab
+  </title>
+  <meta name="description" content="chemical-reaction-lab">
+  <script src="../build.js"></script>
+</head>
+
+<body>
+  <a-scene physics="gravity: -51; debug:false" renderer="antialias: true; gammaOutput: true; sortObjects: true;" >
+
+  <a-box droppable-item material="color: pink" position="0 3 -18"></a-box>
+  <a-box droppable-item material="color: orange" position="5 2 -8"></a-box>
+  <a-box droppable-surface material="color: purple" width="5" depth="4" height=".0001" position="-5 -1 -8"></a-box>
+
+  <a-camera id="camera" wasd-controls="acceleration:220;fly:false;" look-controls="pointerLockEnabled:true">
+    <a-cursor></a-cursor>
+  </a-camera>
+
+  <a-sky material="color:lightblue"></a-sky>
+
+  </a-scene>
+</body>
+
+</html>
