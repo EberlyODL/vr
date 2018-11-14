@@ -52,7 +52,12 @@
        * Move Entities along a predefined Curve
        */
       AFRAME.registerComponent("droppable-surface", {
-        schema: {},
+        schema: {
+          /**
+           * Keep item active after it has been placed
+           */
+          keepActive: { type: "boolean", default: false }
+        },
 
         /**
          * Initial creation and setting of the mesh.
@@ -72,7 +77,7 @@
           this.el.sceneEl.addEventListener(
             "droppable-item-clicked",
             function(e) {
-              this.setActiveItem(e.detail);
+              this.setActiveItem(e.target);
             }.bind(this)
           );
         },
@@ -86,14 +91,14 @@
           if (item) {
             if (item.isSameNode(this.activeItem)) {
               this.activeItem = null;
-              this.el.emit("droppable-surface-active-item-added", item, true);
-            } else {
-              this.activeItem = item;
               this.el.emit(
                 "droppable-surface-new-active-item-removed",
                 item,
                 true
               );
+            } else {
+              this.activeItem = item;
+              this.el.emit("droppable-surface-active-item-added", item, true);
             }
           }
         },
@@ -101,22 +106,19 @@
         placeItem: function(location) {
           // if we have an active item
           if (this.activeItem) {
-            const boundingBox = this.box3.setFromObject(
-              this.activeItem.getObject3D("mesh")
-            );
-            const dimensions = {
-              x: 0,
-              y: -(boundingBox.max.y - boundingBox.min.y) / 2,
-              z: 0
-            };
-            const newPosition = this.vec3.copy(location).sub(dimensions);
-            this.activeItem.setAttribute("position", newPosition);
+            this.activeItem.setAttribute("position", location);
+            // unless specified, we should deactivate this item.
+            if (!this.data.keepActive) {
+              this.setActiveItem(this.activeItem);
+            }
           }
         }
       });
 
       AFRAME.registerComponent("droppable-item", {
-        schema: {},
+        schema: {
+          offset: { type: "vec3", default: { x: 0, y: 0, z: 0 } }
+        },
 
         /**
          * Initial creation and setting of the mesh.
@@ -125,7 +127,7 @@
           this.el.addEventListener(
             "click",
             function(e) {
-              this.el.emit("droppable-item-clicked", this.el, true);
+              this.el.emit("droppable-item-clicked", this.data, true);
             }.bind(this)
           );
         },

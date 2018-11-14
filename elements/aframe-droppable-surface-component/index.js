@@ -9,7 +9,12 @@ if (typeof AFRAME === "undefined") {
  * Move Entities along a predefined Curve
  */
 AFRAME.registerComponent("droppable-surface", {
-  schema: {},
+  schema: {
+    /**
+     * Keep item active after it has been placed
+     */
+    keepActive: { type: "boolean", default: false }
+  },
 
   /**
    * Initial creation and setting of the mesh.
@@ -55,6 +60,10 @@ AFRAME.registerComponent("droppable-surface", {
     // if we have an active item
     if (this.activeItem) {
       this.activeItem.setAttribute("position", location);
+      // unless specified, we should deactivate this item.
+      if (!this.data.keepActive) {
+        this.setActiveItem(this.activeItem);
+      }
     }
   }
 });
